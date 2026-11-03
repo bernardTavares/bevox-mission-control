@@ -1,0 +1,34 @@
+[Unit]
+# Bevox Mission Control — Next.js 15 dashboard for the Company OS.
+# Deployed as a systemd user unit so it follows the same pattern as the
+# knowledge-sync-* timers (linger-enabled user, no root). Binds strictly to
+# 127.0.0.1 — external reach is Cloudflare Tunnel only (Task 17).
+Description=Bevox Mission Control (Next.js)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/code/mission-control
+# PATH precisa incluir ~/.npm-global/bin para que subprocesses dos
+# routes (ex: /api/sessions, /api/cron, /api/health, /api/skills)
+# encontrem `openclaw` instalado via npm global. Sem isso, spawnSync
+# retorna exit 127 (command not found) e routes 500.
+Environment="PATH=%h/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# -H 127.0.0.1: loopback only. NEVER 0.0.0.0 — this service must not be
+# reachable on the public network interface. Cloudflare Tunnel is the
+# only exposure path.
+# -p 4310: arbitrary free high port. Chosen for memorability and to stay
+# outside the ranges used by existing local services (4000-4099 reserved
+# by upstream TenacitOS dev tools). Update deploy/README.md and the
+# cloudflared ingress config if you ever move this.
+ExecStart=/usr/bin/env node node_modules/next/dist/bin/next start -H 127.0.0.1 -p 4310
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=%h/code/mission-control/.env.local
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mission-control
+
+[Install]
+WantedBy=default.target

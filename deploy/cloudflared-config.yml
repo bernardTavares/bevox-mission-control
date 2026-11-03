@@ -1,0 +1,42 @@
+# Bevox Mission Control — Cloudflare Tunnel ingress (template).
+#
+# This file is a SANITIZED REFERENCE of the ingress rule added in Task 17.
+# The live copy lives at /etc/cloudflared/config.yml on Bernard's host and
+# is root-owned; the Debian cloudflared package reads it on startup.
+#
+# On Bernard's setup we REUSE the existing `my-tunnel` tunnel (used
+# for chat.example.com, ssh.example.com, example.com and the *.example.com wildcard)
+# rather than creating a new tunnel just for Mission Control. The rule
+# below MUST be inserted BEFORE the *.example.com wildcard — cloudflared
+# evaluates ingress rules top-to-bottom and the first match wins.
+#
+# If you are setting up a fresh deployment on a host that does NOT already
+# have a tunnel:
+#   1. cloudflared tunnel login           (opens browser, saves cert.pem)
+#   2. cloudflared tunnel create mission-control
+#      → writes ~/.cloudflared/<TUNNEL_ID>.json
+#   3. Copy this file to ~/.cloudflared/config.yml, replace <TUNNEL_ID>
+#      with the UUID from step 2, and drop the `ssh`/`chat.example.com`/
+#      `example.com` entries that are Bernard-specific.
+#   4. cloudflared tunnel route dns mission-control mc.example.com
+#   5. sudo cloudflared service install   (runs as system service)
+#   6. sudo systemctl enable --now cloudflared
+#
+# On Bernard's existing deployment the only change was to add the
+# `mc.example.com` block below to /etc/cloudflared/config.yml and restart
+# the service.
+
+tunnel: <TUNNEL_ID>
+credentials-file: /home/you/.cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  # Mission Control — loopback service on 127.0.0.1:4310 (Task 16).
+  # Cloudflare Access gates this hostname at the edge via an email
+  # allowlist; requests without a valid Access JWT are redirected to
+  # the Access login flow and never reach this ingress.
+  - hostname: mc.example.com
+    service: http://localhost:4310
+
+  # Fallback — required by cloudflared. Every ingress file must end
+  # with a catch-all.
+  - service: http_status:404
