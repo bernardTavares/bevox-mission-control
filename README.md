@@ -8,7 +8,7 @@ A web console for supervising a company run by AI agents. It shows:
 
 It is the read side of the [Bevox Company OS](https://github.com/bernardTavares/bevox-company-os). That OS is a set of supervised agents that turn implementation plans into tasks, run headless Claude Code sessions to execute them, validate the results and escalate to a human on Telegram.
 
-> **Fork notice.** This is a fork of **[TenacitOS](https://github.com/carlosazaustre/tenacitOS)** by Carlos Azaustre, an MIT-licensed Next.js dashboard for [OpenClaw](https://openclaw.ai). The original copyright and license are kept in [LICENSE](./LICENSE). The fork removed some upstream features (the 3D office, the password login) and added about 24k lines across 274 files.
+> **Fork notice.** This is a fork of **[TenacitOS](https://github.com/carlosazaustre/tenacitOS)** by Carlos Azaustre, an MIT-licensed Next.js dashboard for [OpenClaw](https://openclaw.ai). The original copyright and license are kept in [LICENSE](./LICENSE). Fork details are in [NOTICE.md](./NOTICE.md). The fork removed some upstream features (the 3D office, the password login) and added about 24k lines across 274 files.
 
 > **Status:** it ran as an internal service for Bevox. It reads local files written by the Company OS, so without that runtime most pages show empty states.
 

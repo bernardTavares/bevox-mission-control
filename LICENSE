@@ -20,11 +20,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Bevox Mission Control modifications (2026-04-10 onward):
-Copyright (c) 2026 Bevox. Released under the same MIT License above.
-This is a hard fork of carlosazaustre/tenacitOS at upstream commit
-b0215064fe0678dcca8c68a30617a47312317086. There is no expectation of
-upstream merges.
