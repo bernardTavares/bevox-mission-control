@@ -1,5 +1,11 @@
 # Bevox Mission Control
 
+[![tests](https://img.shields.io/badge/tests-247%20passing-brightgreen)](#) [![license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE) ![language](https://img.shields.io/github/languages/top/bernardTavares/bevox-mission-control) ![status](https://img.shields.io/badge/status-used%20internally-orange)
+
+![bevox-mission-control](docs/assets/social-card.png)
+
+> Part of the [4-layer AI-first company series](https://github.com/bernardTavares). License: MIT (fork of TenacitOS by Carlos Azaustre)
+
 A web console for supervising a company run by AI agents. It shows:
 - what each agent is doing and what it costs;
 - whether the company's knowledge base is in sync;
