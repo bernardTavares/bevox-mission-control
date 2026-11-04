@@ -2,25 +2,18 @@
 
 ## Supported Versions
 
-Currently supporting:
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.1.x   | :white_check_mark: |
+Only the latest commit on `main` is supported.
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it by:
+Please report vulnerabilities privately through GitHub's private vulnerability reporting: open this repository's **Security** tab and choose **Report a vulnerability** ([direct link](../../security/advisories/new)).
 
-1. **Email**: security@openclaw.ai (or create a private security advisory on GitHub)
-2. **Do NOT** open a public issue
-3. Include:
-   - Description of the vulnerability
-   - Steps to reproduce
-   - Potential impact
-   - Suggested fix (if any)
+- **Do not** open a public issue.
+- Include a description, steps to reproduce, the potential impact and a suggested fix if you have one.
 
-We will respond within 48 hours and work with you to resolve the issue.
+Responses are best-effort; there is no guaranteed response time.
+
+If the vulnerability is in upstream TenacitOS code and also affects the upstream project, please also notify upstream at https://github.com/carlosazaustre/tenacitOS.
 
 ## Security Best Practices
 

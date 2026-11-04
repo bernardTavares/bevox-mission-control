@@ -2,10 +2,12 @@
 
 Thank you for your interest in contributing! 🦞
 
+This project is a fork of [TenacitOS](https://github.com/carlosazaustre/tenacitOS) by Carlos Azaustre.
+
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/mission-control.git`
+2. Clone your fork: `git clone https://github.com/bernardTavares/bevox-mission-control.git`
 3. Create a branch: `git checkout -b feature/your-feature-name`
 4. Make your changes
 5. Test thoroughly
@@ -163,7 +165,7 @@ Use the `BRANDING` config from `src/config/branding.ts` instead of hardcoding:
 
 **❌ Bad:**
 ```typescript
-const username = "@carlosazaustre";
+const username = "@your-handle";
 ```
 
 **✅ Good:**
@@ -180,6 +182,7 @@ Before submitting a PR:
 
 - [ ] Build succeeds: `npm run build`
 - [ ] No TypeScript errors: `tsc --noEmit`
+- [ ] Tests pass: `npm test`
 - [ ] No ESLint errors: `npm run lint`
 - [ ] Tested in dev mode: `npm run dev`
 - [ ] Tested in production mode: `npm run build && npm start`
@@ -196,7 +199,7 @@ For new features:
 2. Test edge cases (empty data, large datasets, etc.)
 3. Test error handling (network failures, invalid input)
 4. Test on different screen sizes
-5. Update `IMPLEMENTATION-STATUS.md`
+5. Update [ROADMAP.md](./ROADMAP.md) if the feature is listed there
 
 ## Commit Messages
 
@@ -242,7 +245,7 @@ clicking notification items.
 
 1. **Update documentation**
    - Update README.md if adding features
-   - Update IMPLEMENTATION-STATUS.md with completion status
+   - Update ROADMAP.md if the change completes a planned item
    - Add docstrings to new functions/components
 
 2. **Keep PRs focused**
@@ -358,10 +361,13 @@ Feature requests are welcome! Use GitHub Issues with:
 
 Check [ROADMAP.md](./ROADMAP.md) first - it might already be planned!
 
+## Security
+
+Report vulnerabilities privately via GitHub private vulnerability reporting, not public issues. See [SECURITY.md](./SECURITY.md).
+
 ## Questions?
 
-- **Discord**: [OpenClaw Community](https://discord.com/invite/clawd)
-- **GitHub Discussions**: For general questions
+- **GitHub Discussions**: [this repo's Discussions](../../discussions) for general questions
 - **GitHub Issues**: For bug reports and feature requests
 
 ---
