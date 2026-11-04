@@ -10,7 +10,7 @@ It is the read side of the [Bevox Company OS](https://github.com/bernardTavares/
 
 > **Fork notice.** This is a fork of **[TenacitOS](https://github.com/carlosazaustre/tenacitOS)** by Carlos Azaustre, an MIT-licensed Next.js dashboard for [OpenClaw](https://openclaw.ai). The original copyright and license are kept in [LICENSE](./LICENSE). The fork removed some upstream features (the 3D office, the password login) and added about 24k lines across 274 files.
 
-> **Status:** it ran as an internal service from April to May 2026 and stopped with the company. It reads local files written by the Company OS, so without that runtime most pages show empty states.
+> **Status:** it ran as an internal service for Bevox. It reads local files written by the Company OS, so without that runtime most pages show empty states.
 
 ## Design rule: the dashboard doesn't approve anything
 
